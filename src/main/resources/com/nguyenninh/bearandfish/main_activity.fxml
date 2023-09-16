@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nguyenninh.bearandfish.controllers.MainActivity">
+    <children>
+        <GridPane fx:id="gridPane" alignment="CENTER" gridLinesVisible="true" prefHeight="500.0" prefWidth="500.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <padding>
+                <Insets right="10.0" />
+            </padding>
+        </GridPane>
+        <VBox fx:id="vBoxSetting" alignment="CENTER" prefWidth="200.0" spacing="5.0" style="-fx-border-color: black;">
+            <children>
+                <Label text="Cài đặt">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <HBox alignment="CENTER" prefHeight="39.0" prefWidth="200.0" spacing="20.0">
+                    <children>
+                        <Label text="Rộng:" />
+                        <TextField fx:id="numWidth" prefWidth="50.0" />
+                    </children>
+                    <padding>
+                        <Insets left="10.0" right="10.0" />
+                    </padding>
+                </HBox>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="114.0" prefHeight="39.0" prefWidth="200.0" spacing="25.0">
+                    <children>
+                        <Label text="Dày:" />
+                        <TextField fx:id="numHeight" prefWidth="50.0" />
+                    </children>
+                    <padding>
+                        <Insets left="10.0" right="10.0" />
+                    </padding>
+                </HBox>
+                <VBox alignment="CENTER" prefHeight="56.0" prefWidth="200.0" spacing="5.0">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                            <children>
+                                <Label text="Tốc độ" />
+                                <TextField fx:id="speedText" prefWidth="30.0" />
+                            </children>
+                        </HBox>
+                        <Slider fx:id="speedSlider" max="99.0" min="1.0" showTickMarks="true">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                        </Slider>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" layoutX="10.0" layoutY="261.0" prefHeight="56.0" prefWidth="200.0" spacing="5.0">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                            <children>
+                                <Label text="Số lượng Gấu" />
+                                <TextField fx:id="priceBearText" prefWidth="30.0" />
+                            </children>
+                        </HBox>
+                        <Slider fx:id="priceBearSlider" max="99.0" min="1.0" showTickMarks="true">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                        </Slider>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" layoutX="10.0" layoutY="238.0" prefHeight="56.0" prefWidth="200.0" spacing="5.0">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                            <children>
+                                <Label text="Số lượng Cá" />
+                                <TextField fx:id="priceFishText" alignment="CENTER" prefWidth="30.0" />
+                            </children>
+                        </HBox>
+                        <Slider fx:id="priceFishSlider" max="99.0" min="1.0" showTickMarks="true">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                        </Slider>
+                    </children>
+                </VBox>
+                <Button fx:id="btnSubmit" mnemonicParsing="false" prefWidth="100.0" text="Chạy">
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</HBox>
