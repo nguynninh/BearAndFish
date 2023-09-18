@@ -41,7 +41,7 @@ public class MainActivity implements Initializable, Runnable {
 
     //OPP
     private AnimationTimer timer;
-    private List<Node> dataNodes = new ArrayList<>();
+    private List<Animal> dataNodes = new ArrayList<>();
 
     private double cellWidth;
     private double cellHeight;
@@ -129,15 +129,7 @@ public class MainActivity implements Initializable, Runnable {
     }
 
     private void draw() {
-        if (dataNodes.size() == width * height) {
-            System.out.println("Kết thúc chương trình");
-            timer.stop();
-            gridPane.getChildren().removeAll(dataNodes);
-            vBoxSetting.setDisable(false);
-            return;
-        }
-
-        gridPane.getChildren().removeAll(dataNodes);
+        gridPane.getChildren().removeAll(removeGP());
         dataNodes.clear();
         forest.go();
 
@@ -152,12 +144,36 @@ public class MainActivity implements Initializable, Runnable {
 
                         if (!gridPane.getChildren().contains(imageView)) {
                             gridPane.add(imageView, i, j);
-                            dataNodes.add(imageView);
+                            dataNodes.add(forest.getData()[i][j]);
                         }
                     }
                 }
             }
         }
+
+        if (!fishExist()) {
+            System.out.println("Kết thúc chương trình");
+            timer.stop();
+//            gridPane.getChildren().removeAll(removeGP());
+//            vBoxSetting.setDisable(false);
+            return;
+        }
+    }
+
+    private List<ImageView> removeGP(){
+        List<ImageView> img = new ArrayList<>();
+        for (Animal animal: dataNodes) {
+            if (animal != null) img.add(animal.getImage());
+        }
+        return img;
+    }
+
+    private boolean fishExist(){
+        for (Animal animal: dataNodes) {
+            if (animal instanceof Fish)
+                return true;
+        }
+        return false;
     }
 
     public void changeValue(TextField text, Slider slider) {
